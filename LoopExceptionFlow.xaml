@@ -1,0 +1,101 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LoopExceptionFlow" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="exception" Type="InArgument(s:Exception)" />
+    <x:Property Name="wb" Type="InArgument(ui:WorkbookApplication)" />
+    <x:Property Name="excel" Type="InArgument(x:String)" />
+    <x:Property Name="strAlphaKey" Type="InArgument(x:String)" />
+    <x:Property Name="strVendorName" Type="InArgument(x:String)" />
+    <x:Property Name="strOutlookProfileName" Type="InArgument(x:String)" />
+    <x:Property Name="strExceptionMailTo" Type="InArgument(x:String)" />
+    <x:Property Name="BotStartTime" Type="InArgument(s:DateTime)" />
+    <x:Property Name="DT_BotProcessLogs" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="BotProcessedLogsPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1534,1222</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="376,1077" sap2010:WorkflowViewState.IdRef="Sequence_75">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="subject" />
+      <Variable x:TypeArguments="x:String" Name="body" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Error" Message="[&quot;Exception encountred&quot;]" />
+    <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_13" Workbook="[wb]" />
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{BotStartTime.ToString,now.ToString,&quot;SystemException&quot;,exception.Message+&quot; [in flow] &quot;+exception.Data.ToString,&quot;&quot;,strAlphaKey,strVendorName,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,excel}]" DataTable="[DT_BotProcessLogs]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+    <ui:AppendRange DataTable="[DT_BotProcessLogs]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="AppendRange_8" SheetName="VoucherCreation" WorkbookPath="[BotProcessedLogsPath]" />
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_77">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[subject]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["SystemException occured during Voucher creation"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_78">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[body]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Hi Team,&lt;br&gt;&lt;/br&gt;SystemException occured during Voucher creation. Please find the details below:&lt;br&gt;&lt;/br&gt;&lt;b&gt;SystemException:&lt;/b&gt;"+exception.Message+"&lt;br&gt;&lt;/br&gt;TimeStamp:"+now.ToString+"&lt;br&gt;&lt;/br&gt;Please find logs attached&lt;br&gt;&lt;/br&gt;Refer the BotExceptionLog for solution and resend the case."]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[strOutlookProfileName]" Body="[body]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_8" IsBodyHtml="True" IsDraft="False" Subject="[subject]" To="[strExceptionMailTo]">
+      <ui:SendOutlookMail.Files>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+          <InArgument x:TypeArguments="x:String">[BotProcessedLogsPath]</InArgument>
+        </scg:List>
+      </ui:SendOutlookMail.Files>
+    </ui:SendOutlookMail>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_49" Level="Info" Message="[&quot;Exception mail sent&quot;]" />
+    <ui:ClearDataTable DataTable="[DT_BotProcessLogs]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+  </Sequence>
+</Activity>

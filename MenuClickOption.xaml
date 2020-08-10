@@ -1,0 +1,275 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ClickingLedgerCashbookAll" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="strGlobalBakeUsername" Type="InArgument(x:String)" />
+    <x:Property Name="strGlobalBakePassword" Type="InArgument(x:String)" />
+    <x:Property Name="strSystemExceptionPath" Type="InArgument(x:String)" />
+    <x:Property Name="strGlobalBakePath" Type="InArgument(x:String)" />
+    <x:Property Name="CompanyName" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1534,2569</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="18">
+      <x:String>System.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ClickingLedgerCashbookAll" sap:VirtualizedContainerService.HintSize="797,2504" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="StartScreenExist" />
+      <Variable x:TypeArguments="x:Int32" Name="intCompanyChangeCount">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="strMenuOption" />
+      <Variable x:TypeArguments="x:Int32" Name="Int_DownCount" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="755,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[intCompanyChangeCount]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">1</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strMenuOption]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Custom</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[Int_DownCount]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">4</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:UiElementExists DisplayName="Element Exists 'jade.exe [1]'" Exists="[StartScreenExist]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e4bb8c09-cf98-4763-a496-e20a21b060d6" InformativeScreenshot="fad1a459e23f31f2b195ecb143a2361c" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;" TimeoutMS="2000">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[not StartScreenExist]" sap:VirtualizedContainerService.HintSize="755,520" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="LoginScreen Not present" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;HomePage Not Found: Unusual&quot;]" />
+          <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Jade" />
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Login To Global Bake workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Login To Global Bake.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="Str_Username_Gb">[strGlobalBakeUsername]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Str_Password_Gb">[strGlobalBakePassword]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="GlobalBakePath">[strGlobalBakePath]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;HomePage Found: Navigating to menu&quot;]" />
+      </If.Else>
+    </If>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke NavigationBetweenCompany workflow" sap:VirtualizedContainerService.HintSize="755,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="NavigationBetweenCompany.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="Int_Loc_SelectCompany">[intCompanyChangeCount]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="ExtractedCompanyName" />
+        <InArgument x:TypeArguments="x:String" x:Key="CompanyName">[CompanyName]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:ClickOCRText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OCR Text 'jade.exe [1]'" sap:VirtualizedContainerService.HintSize="755,201" sap2010:WorkflowViewState.IdRef="ClickOCRText_1" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" Text="[strMenuOption]">
+      <ui:ClickOCRText.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:ClickOCRText.CursorPosition>
+      <ui:ClickOCRText.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <ui:MicrosoftOCR FilterRegion="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Microsoft OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_1" Image="[Image]" />
+        </ActivityFunc>
+      </ui:ClickOCRText.OCREngine>
+      <ui:ClickOCRText.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e0fdd16d-70d9-4fcd-a8f1-bb9eb6b1ff8e" InformativeScreenshot="edc9c13443d748f55d175c807a7a592b" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='[1] Menu*' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:ClickOCRText.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClickOCRText>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Str menu option: &quot;+strMenuOption+&quot;clicked&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="755,221" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'jade.exe [1]'" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAAPCAYAAABwfkanAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADPSURBVEhL7ZONDcQgCIWdy4GYh2lcxmE4rLaKkWvF+899iUkFfTyVOvpCfs10IHCeMJbpNKv7df6mJZ9mOiJ558htA3hloYl7RLn/Yq7q5foAXtZgDKa7eAA2kSYp7giKesRUbF93ltP18rdk3rS4lTKSmxT3SHV5s/8sN9LT6jNG0/K5NpZMD/S0+oyxPUbPluO29tD0TKblsx3C/ZPubrgf69ruZ7uXG+qZTD8RtSWuoZo+Tt2NRxCAtUSPz/Gim46Evj28/ZYT72mPJYhuEn1PN2admhkAAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="074adb6f-5893-4ea9-bc60-766fa56da1a3" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='[1] Menu Advance Investment LLC' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ClickImage>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <While sap:VirtualizedContainerService.HintSize="755,466" sap2010:WorkflowViewState.IdRef="While_1">
+      <While.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not Int_DownCount=0" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+      </While.Condition>
+      <Sequence sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'jade.exe'" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SpecialKey="True">
+          <ui:SendHotkey.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="06fad898-7788-4210-a639-11a55e1a7b93">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SendHotkey.Target>
+        </ui:SendHotkey>
+        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[Int_DownCount]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[Int_DownCount-1]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </While>
+    <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'jade.exe'" sap:VirtualizedContainerService.HintSize="755,116" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+      <ui:SendHotkey.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="05f24f96-e3b5-4ce2-840e-b6f5a4efaffc">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:SendHotkey.Target>
+    </ui:SendHotkey>
+  </Sequence>
+</Activity>

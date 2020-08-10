@@ -1,0 +1,311 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ClickingLogic" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="str_ReferneceNum" Type="InArgument(x:String)" />
+    <x:Property Name="intCreditAmount" Type="InArgument(x:Double)" />
+    <x:Property Name="ScrolBarExist" Type="InArgument(x:Boolean)" />
+    <x:Property Name="boolReferenceID" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1269,3465</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="17">
+      <x:String>System.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ClickingLogic" sap:VirtualizedContainerService.HintSize="947,3360" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strTableHeader" />
+      <Variable x:TypeArguments="x:Int32" Name="int_ArrIndex" />
+      <Variable x:TypeArguments="x:Int32" Name="intRowNavValue" />
+      <Variable x:TypeArguments="sd:Rectangle" Name="axis_UnallocatedAmountLocation" />
+      <Variable x:TypeArguments="x:Int32" Name="Int_Xaxis_Unallocated_credit" />
+      <Variable x:TypeArguments="x:Int32" Name="Int_Yaxis_Unallocated_credit" />
+      <Variable x:TypeArguments="x:Int32" Name="IntDistanceBWrows" />
+      <Variable x:TypeArguments="s:String[]" Name="Arr_TableData" />
+      <Variable x:TypeArguments="x:String" Name="strTableData" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate 'Jade:form'" sap:VirtualizedContainerService.HintSize="905,106" sap2010:WorkflowViewState.IdRef="Activate_5">
+      <ui:Activate.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="206d2720-3b6e-4797-aa5b-5198844e5581" InformativeScreenshot="0c712551d883360e1fea8ef979416791" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Transaction Alloc*' /&gt;&lt;wnd cls='Jade:form' title='Transaction Allocations' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Activate.Target>
+    </ui:Activate>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="905,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Refernece ID Found&quot;]" />
+    <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text &quot;Check for refernece&quot;" sap:VirtualizedContainerService.HintSize="905,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
+      <ui:GetVisibleText.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb4cf5cc-2943-4414-832f-1436ae867245" InformativeScreenshot="faaea5f722c2351994b136af8fb0d696" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Transaction Alloc*' /&gt;&lt;wnd cls='Jade:Table' idx='1' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetVisibleText.Target>
+      <ui:GetVisibleText.Text>
+        <OutArgument x:TypeArguments="x:String">[strTableData]</OutArgument>
+      </ui:GetVisibleText.Text>
+    </ui:GetVisibleText>
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Take from config file as hardcoded" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="905,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strTableHeader]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Reference</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[Int_Xaxis_Unallocated_credit]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">41</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[Int_Yaxis_Unallocated_credit]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">85</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[IntDistanceBWrows]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">15</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[boolReferenceID]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <Assign sap:VirtualizedContainerService.HintSize="905,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[Arr_TableData]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[strTableData.Split(Environment.NewLine.ToCharArray)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="905,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[int_ArrIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each &quot;Extracted Visible Text&quot;" sap:VirtualizedContainerService.HintSize="905,1067" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Arr_TableData]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="lineItem" />
+          </ActivityAction.Argument>
+          <If Condition="[lineItem.trim.ToLower.Contains(strTableHeader.ToLower) or lineItem.Trim.Equals(string.Empty)]" DisplayName="If &quot;ToRemove Empty Line and Line with Header&quot;" sap:VirtualizedContainerService.HintSize="708,933" sap2010:WorkflowViewState.IdRef="If_6">
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="563,785" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[lineItem.trim.ToLower.Contains(str_ReferneceNum.ToLower)]" DisplayName="If &quot;Check LineItem contains ReferenceNumber&quot;" sap:VirtualizedContainerService.HintSize="521,593" sap2010:WorkflowViewState.IdRef="If_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,445" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[intRowNavValue]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[int_ArrIndex+1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;ReferenceID Found at :&quot;+intRowNavValue.ToString]" />
+                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[boolReferenceID]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                    </Sequence>
+                  </If.Then>
+                </If>
+                <Assign sap:VirtualizedContainerService.HintSize="521,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[int_ArrIndex]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[int_ArrIndex+1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Else>
+          </If>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <If Condition="[boolReferenceID=True]" sap:VirtualizedContainerService.HintSize="905,1245" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="526,1097" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetPosition ContinueOnError="{x:Null}" DisplayName="Get Position 'UnallocatedAmount'" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="GetPosition_1" Rectangle="[axis_UnallocatedAmountLocation]">
+            <ui:GetPosition.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f547d234-7c82-4d69-a195-2e312e4e934f" InformativeScreenshot="17a6d47e40adf5b392d697b02c411990" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Transaction Alloc*' /&gt;&lt;wnd cls='Jade:Label' title='Unallocated Amount' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:GetPosition.Target>
+          </ui:GetPosition>
+          <If Condition="[intRowNavValue=1]" sap:VirtualizedContainerService.HintSize="484,254" sap2010:WorkflowViewState.IdRef="If_8">
+            <If.Else>
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'credit for reference value'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition OffsetX="[axis_UnallocatedAmountLocation.Location.X+Int_Xaxis_Unallocated_credit]" OffsetY="[axis_UnallocatedAmountLocation.Location.Y+Int_Yaxis_Unallocated_credit+(IntDistanceBWrows*intRowNavValue)]" Position="Center" />
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="dc0d8b24-7cbf-4d8e-ae77-93b53c9a47f4" InformativeScreenshot="da7e121252db76a32dfa365fdfec39c1">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+            </If.Else>
+          </If>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Coordinates of Credit for Reference id: &quot;+str_ReferneceNum+&quot; is:&quot;+Environment.NewLine+&quot;X axis: &quot;+(axis_UnallocatedAmountLocation.Location.X+Int_Xaxis_Unallocated_credit).ToString+Environment.NewLine+&quot;Y axis: &quot;+(axis_UnallocatedAmountLocation.Location.Y+Int_Yaxis_Unallocated_credit+(IntDistanceBWrows*intRowNavValue)).ToString]" />
+          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DelayBetweenKeys="3" DisplayName="Send Hotkey 'Amount Value'" sap:VirtualizedContainerService.HintSize="484,154" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="[intCreditAmount.ToString]" KeyModifiers="None">
+            <ui:SendHotkey.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8bf69f97-8481-44e6-8108-ce8a51102e11" InformativeScreenshot="da7e121252db76a32dfa365fdfec39c1" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Transaction Alloc*' /&gt;&lt;wnd cls='Jade:Table' idx='1' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:SendHotkey.Target>
+          </ui:SendHotkey>
+          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="484,116" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="tab" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="4695877a-d858-428d-a43c-dd8bb4b94690">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:SendHotkey.Target>
+          </ui:SendHotkey>
+          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Reference id not found error&quot;]" />
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

@@ -1,0 +1,857 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SingleCompanyNav" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="BankAccountNumber" Type="InArgument(x:Int64)" />
+    <x:Property Name="VendorName_Memo" Type="InArgument(x:String)" />
+    <x:Property Name="ReconMemoDetails" Type="InArgument(x:String)" />
+    <x:Property Name="BankRefernceNumber" Type="InArgument(x:Int64)" />
+    <x:Property Name="VendorAlphaKey" Type="InArgument(x:String)" />
+    <x:Property Name="TotalAmount" Type="InArgument(x:Double)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1269,831</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SingleCompanyNav_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SingleCompanyNav" sap:VirtualizedContainerService.HintSize="476,564" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,472" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="1238,6052" sap2010:WorkflowViewState.IdRef="Sequence_28">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ElementScope UiElement="{x:Null}" DisplayName="Element Scope 'Select cashbook vendors/others'" sap:VirtualizedContainerService.HintSize="281,51" sap2010:WorkflowViewState.IdRef="ElementScope_2">
+            <ui:ElementScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,475" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;CashbookVendors/Others Window open: Clicking Cashbook Vendors&quot;]" />
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b698696-b98e-4ef4-849e-b2dbec5b31ed" InformativeScreenshot="825c305aaff46de290cab5f84c9b3b5a" Selector="&lt;wnd cls='Button' title='Cashbook Vendors' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Jade:Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e5b6f511-a05e-4e30-872a-b46e5754d195" InformativeScreenshot="03be83c5fea117b3bef1fabb94424af7" Selector="&lt;wnd cls='Jade:Button' title='OK' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </ActivityAction>
+            </ui:ElementScope.Body>
+            <ui:ElementScope.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa4a3b8f-9710-4ef9-8df0-8740e7ac5d47" InformativeScreenshot="377da8ff0114e446495358354592b6f4" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='Select Class for ADD Transaction' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ElementScope.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ElementScope>
+          <ui:ElementScope UiElement="{x:Null}" DisplayName="Element Scope 'Cashbook Vendors: ADD'" sap:VirtualizedContainerService.HintSize="281,51" sap2010:WorkflowViewState.IdRef="ElementScope_3">
+            <ui:ElementScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1162,5173" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Bank A/c number click " sap:VirtualizedContainerService.HintSize="1120,1571" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="BoolBankAccNo_Full" />
+                      <Variable x:TypeArguments="x:Boolean" Name="BoolBankAccName" />
+                      <Variable x:TypeArguments="x:Boolean" Name="BoolBankacNum" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:UiElementExists DisplayName="Element Exists 'BankAccountNo'" Exists="[BoolBankAccNo_Full]" sap:VirtualizedContainerService.HintSize="1078,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6bd4eddc-2872-4300-ae24-1992ba5222e8" InformativeScreenshot="6ebd6d7c08b80cd4844fd8a7d27459f6" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Cashbook Vendors : ADD*' /&gt;&#xA;&lt;wnd cls='Jade:Button' title='Bank Account No' /&gt;&#xA;" TimeoutMS="2000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <ui:UiElementExists DisplayName="Element Exists 'BankA/cName'" Exists="[BoolBankAccName]" sap:VirtualizedContainerService.HintSize="1078,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fe9846cd-3b1d-4d20-9082-4b9fd8c6f99c" InformativeScreenshot="3911652b5ac78be8b287614f0ae3fdfe" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Cashbook Vendors : ADD*' /&gt;&#xA;&lt;wnd cls='Jade:Button' title='Bank A/c Name' /&gt;&#xA;" TimeoutMS="2000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <ui:UiElementExists DisplayName="Element Exists 'bankA/c No'" Exists="[BoolBankacNum]" sap:VirtualizedContainerService.HintSize="1078,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aa84740-0b35-4940-9e60-2873215b0118" InformativeScreenshot="8a7a293381d021af27252b489bed5704" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Cashbook Vendors : ADD*' /&gt;&#xA;&lt;wnd cls='Jade:Button' title='Bank A/c No' /&gt;&#xA;" TimeoutMS="2000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If sap2010:Annotation.AnnotationText="As in Cashbook Vendors: Value of Bank A/c No is not constant: To get Bank A/c Number on it" Condition="[BoolBankAccName=True]" DisplayName="If to get Bank A/c no" sap:VirtualizedContainerService.HintSize="1078,1041" sap2010:WorkflowViewState.IdRef="If_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence DisplayName="To get Bank A/c No" sap:VirtualizedContainerService.HintSize="454,863" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,640" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                            <ui:InterruptibleDoWhile.Body>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,475" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Bank A/c No not present: clicking to get Bank A/c No&quot;]" />
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Jade:Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3c03ccb6-a921-4d32-8351-33e31a838c63" InformativeScreenshot="7d90385c8fbba187e499d7abd8fda920" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd title='Cashbook Vendors : ADD' idx='1' /&gt;&#xA;&lt;wnd cls='Jade:Button' aastate='focusable' ctrlid='6015' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:Click.Target>
+                                </ui:Click>
+                                <ui:UiElementExists DisplayName="Element Exists 'bankA/c No'" Exists="[BoolBankacNum]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                                  <ui:UiElementExists.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7aa84740-0b35-4940-9e60-2873215b0118" InformativeScreenshot="8a7a293381d021af27252b489bed5704" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*Cashbook Vendors : ADD*' /&gt;&#xA;&lt;wnd cls='Jade:Button' title='Bank A/c No' /&gt;&#xA;" TimeoutMS="2000">
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:UiElementExists.Target>
+                                </ui:UiElementExists>
+                              </Sequence>
+                            </ui:InterruptibleDoWhile.Body>
+                            <ui:InterruptibleDoWhile.Condition>
+                              <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="BoolBankacNum=False" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
+                            </ui:InterruptibleDoWhile.Condition>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InterruptibleDoWhile>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Bank A/c No Value present&quot;]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <If Condition="[(BoolBankAccNo_Full=True or BoolBankacNum=True) and BoolBankAccName=False]" sap:VirtualizedContainerService.HintSize="579,238" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Then>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Bank A/c No Value already present&quot;]" />
+                          </If.Then>
+                          <If.Else>
+                            <Throw Exception="[new SystemException(&quot;SE 20 Bank a/c number flow issue: cannot new elements added: contact dev&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                          </If.Else>
+                        </If>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Bank account Number entry and validate the correct account number entered" DisplayName="BankAccountNumber Entry" sap:VirtualizedContainerService.HintSize="765,1667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="BoolBankAccNum" />
+                      <Variable x:TypeArguments="x:Int32" Name="loopCount" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="723,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[BoolBankAccNum]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="723,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[loopCount]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InterruptibleDoWhile DisplayName="Do While: For Bank Account Number entry" sap:VirtualizedContainerService.HintSize="723,1344" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4">
+                      <ui:InterruptibleDoWhile.Body>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="687,1179" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="ExtractedBankAccNum" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Select all'" sap:VirtualizedContainerService.HintSize="645,51" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="a" KeyModifiers="Ctrl">
+                            <ui:SendHotkey.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f09b4585-e48d-4bf6-bbfa-6aac37aa4a38" InformativeScreenshot="78e620e2e9c18de3d16014cc5cb16d67" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='4' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:SendHotkey.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:SendHotkey>
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Delete" sap:VirtualizedContainerService.HintSize="645,51" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="del" KeyModifiers="None" SpecialKey="True">
+                            <ui:SendHotkey.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f09b4585-e48d-4bf6-bbfa-6aac37aa4a38" InformativeScreenshot="78e620e2e9c18de3d16014cc5cb16d67" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='4' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:SendHotkey.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:SendHotkey>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="100" DisplayName="Type Into 'BankAccount Number'" sap:VirtualizedContainerService.HintSize="645,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[BankAccountNumber.ToString]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="598ab6ee-1977-43be-97b0-b8868338500a" InformativeScreenshot="90f51ba1500689438b7323cb549c6228" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='4' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="645,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Entered Bank AccountNumber'" sap:VirtualizedContainerService.HintSize="645,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                            <ui:GetValue.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc3532be-9607-4147-97c3-0897eaa1975a" InformativeScreenshot="78e620e2e9c18de3d16014cc5cb16d67" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='4' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetValue.Target>
+                            <ui:GetValue.Value>
+                              <OutArgument x:TypeArguments="x:String">[ExtractedBankAccNum]</OutArgument>
+                            </ui:GetValue.Value>
+                          </ui:GetValue>
+                          <If Condition="[loopCount&gt;3]" DisplayName="If loopcount&gt;3 throw error" sap:VirtualizedContainerService.HintSize="645,207" sap2010:WorkflowViewState.IdRef="If_7">
+                            <If.Then>
+                              <Throw Exception="[new SystemException(&quot;SE 21 Bank account entry error: correct bank number not entering due to auto populating, verify bankAcc Number&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                            </If.Then>
+                          </If>
+                          <If Condition="[BankAccountNumber.ToString.Trim.Contains(ExtractedBankAccNum.trim) or BankAccountNumber.ToString.Trim.Equals(ExtractedBankAccNum.trim)]" DisplayName="If to check account number match" sap:VirtualizedContainerService.HintSize="645,276" sap2010:WorkflowViewState.IdRef="If_8">
+                            <If.Then>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[BoolBankAccNum]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Then>
+                            <If.Else>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[BoolBankAccNum]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[loopCount]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[loopCount+1]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </ui:InterruptibleDoWhile.Body>
+                      <ui:InterruptibleDoWhile.Condition>
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="BoolBankAccNum=False" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                      </ui:InterruptibleDoWhile.Condition>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InterruptibleDoWhile>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Enter Date: No validation given as auto population is not there&#xA;" DisplayName="DateEntry" sap:VirtualizedContainerService.HintSize="1120,138" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="CurrentDate" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[CurrentDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[now.ToString("dd-MM-yyyy")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="100" DisplayName="Type Into 'Date'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="[CurrentDate]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="36923300-33c2-458e-8c87-1f0646727028" InformativeScreenshot="a9207bd5270fb2c5cff6eabbcc8d4fba" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='5' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Directly inhertited from Email subject" DisplayName="Name of the Party" sap:VirtualizedContainerService.HintSize="1120,108" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Jade:Edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[VendorName_Memo.Trim]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c73d2e6a-2f6c-48e4-9865-1d8a921efa43" InformativeScreenshot="b89337fe0ce935b3e613828e826afa08" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='6' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Memo entry: Period is taken from recon report and at end append with &quot;Invoices&quot;" DisplayName="Memo Entry" sap:VirtualizedContainerService.HintSize="1120,123" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="Memo" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Memo]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[ReconMemoDetails+"  Invoices"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'Memo'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" Text="[Memo.ToString.Trim]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ff455479-e9ee-4df8-b111-6fade0ff6f8a" InformativeScreenshot="adb8e89260768faa015ec7a68d5bfe50" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='11' /&gt;" TimeoutMS="10">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </Sequence>
+                  <Sequence sap2010:Annotation.AnnotationText="Reference ID entry: it goes to reference excel and checks the next available check and enters the value here. The value is appended for new check post issuing the check" DisplayName="ReferneceID" sap:VirtualizedContainerService.HintSize="1120,283" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'ReferneceID'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" Text="[BankRefernceNumber.ToString]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e3be6931-24b6-492b-9df5-2b38e58b6fa3" InformativeScreenshot="336410e7f989858a864a127f71d4a004" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&#xA;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&#xA;&lt;wnd cls='Jade:Edit' idx='10' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </Sequence>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="clicking bottomLeft of the table and setting offset to click within the table range" ClickType="CLICK_SINGLE" DisplayName="Click 'Table to open vendor details add'" sap:VirtualizedContainerService.HintSize="1120,108" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition OffsetX="20" OffsetY="-15" Position="BottomLeft" />
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5d480651-8c15-4041-8aca-32f6500c49cc" InformativeScreenshot="3b9fe0011a93c2229c1e9404a6ab106d" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;&lt;wnd cls='Jade:Table' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <ui:ElementScope UiElement="{x:Null}" DisplayName="Element Scope 'VendorScreen'" sap:VirtualizedContainerService.HintSize="1120,803" sap2010:WorkflowViewState.IdRef="ElementScope_5">
+                    <ui:ElementScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,627" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence sap2010:Annotation.AnnotationText="AlphaKey entry and validate the correct alpha key entered as this is autoPopulatingField" DisplayName="Alphakey Entry" sap:VirtualizedContainerService.HintSize="765,1873" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Boolean" Name="boolAlphaKey" />
+                              <Variable x:TypeArguments="x:Int32" Name="loopCount" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="723,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Boolean">[boolAlphaKey]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="723,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[loopCount]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:InterruptibleDoWhile DisplayName="Do While: For Bank Account Number entry" sap:VirtualizedContainerService.HintSize="723,1550" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
+                              <ui:InterruptibleDoWhile.Body>
+                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="687,1385" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="ExtractedText" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Select all'" sap:VirtualizedContainerService.HintSize="645,154" sap2010:WorkflowViewState.IdRef="SendHotkey_7" Key="a" KeyModifiers="Ctrl">
+                                    <ui:SendHotkey.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f09b4585-e48d-4bf6-bbfa-6aac37aa4a38" InformativeScreenshot="a08ab490656b822f23589a8584c2f5bf" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Button' title='Vendor' /&gt;&lt;wnd cls='Jade:Edit' idx='1' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SendHotkey.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendHotkey>
+                                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Delete" sap:VirtualizedContainerService.HintSize="645,154" sap2010:WorkflowViewState.IdRef="SendHotkey_8" Key="del" KeyModifiers="None" SpecialKey="True">
+                                    <ui:SendHotkey.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f09b4585-e48d-4bf6-bbfa-6aac37aa4a38" InformativeScreenshot="a08ab490656b822f23589a8584c2f5bf" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Button' title='Vendor' /&gt;&lt;wnd cls='Jade:Edit' idx='1' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SendHotkey.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendHotkey>
+                                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="100" DisplayName="Type Into 'VendorAlphaKey'" sap:VirtualizedContainerService.HintSize="645,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[VendorAlphaKey.Trim.ToString]">
+                                    <ui:TypeInto.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="598ab6ee-1977-43be-97b0-b8868338500a" InformativeScreenshot="a08ab490656b822f23589a8584c2f5bf" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Button' title='Vendor' /&gt;&lt;wnd cls='Jade:Edit' idx='1' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:TypeInto.Target>
+                                  </ui:TypeInto>
+                                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="645,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Entered VendorAlphaKey'" sap:VirtualizedContainerService.HintSize="645,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc3532be-9607-4147-97c3-0897eaa1975a" InformativeScreenshot="a08ab490656b822f23589a8584c2f5bf" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Button' title='Vendor' /&gt;&lt;wnd cls='Jade:Edit' idx='1' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">[ExtractedText]</OutArgument>
+                                    </ui:GetValue.Value>
+                                  </ui:GetValue>
+                                  <If Condition="[loopCount&gt;3]" DisplayName="If loopcount&gt;3 throw error" sap:VirtualizedContainerService.HintSize="645,207" sap2010:WorkflowViewState.IdRef="If_9">
+                                    <If.Then>
+                                      <Throw Exception="[new SystemException(&quot;SE 22 Bank account entry error: correct AlphaKey not entering due to auto populating, verify Alphakey&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                                    </If.Then>
+                                  </If>
+                                  <If Condition="[VendorAlphaKey.ToString.Trim.Contains(ExtractedText.trim) or VendorAlphaKey.ToString.Trim.Equals(ExtractedText.trim)]" DisplayName="If to check account number match" sap:VirtualizedContainerService.HintSize="645,276" sap2010:WorkflowViewState.IdRef="If_10">
+                                    <If.Then>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[boolAlphaKey]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </If.Then>
+                                    <If.Else>
+                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                                        <ui:MultipleAssign.AssignOperations>
+                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:Boolean">[boolAlphaKey]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:Int32">[loopCount]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:Int32">[loopCount+1]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                          </scg:List>
+                                        </ui:MultipleAssign.AssignOperations>
+                                      </ui:MultipleAssign>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </ui:InterruptibleDoWhile.Body>
+                              <ui:InterruptibleDoWhile.Condition>
+                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolAlphaKey=False" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                              </ui:InterruptibleDoWhile.Condition>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InterruptibleDoWhile>
+                          </Sequence>
+                          <Sequence DisplayName="EnterAmount" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Jade:Edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[TotalAmount.ToString]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6736e2a6-6db7-46b0-b403-08d4603e3afc" InformativeScreenshot="35a7ffb0abd9abf42ef7c06f5a3a7b1a" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Button' title='Details' /&gt;&lt;wnd cls='Jade:Edit' idx='3' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Save &amp; Next'" sap:VirtualizedContainerService.HintSize="376,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1d983eaa-468a-4f7a-8d8d-6cda17f7ac21" InformativeScreenshot="ab6f30f168e6fcd89282b2e1f253ed73" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd aaname='Save  Next' cls='Jade:Button' title='Save &amp;amp;&amp;amp; &amp;amp;Next' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Click>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ElementScope.Body>
+                    <ui:ElementScope.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="28fe32e6-045d-4658-ab0c-d4b0dc7a655b" InformativeScreenshot="d3c8fddcbcfaad705778af197634a7a5" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Jade:form' idx='1' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:ElementScope.Target>
+                  </ui:ElementScope>
+                </Sequence>
+              </ActivityAction>
+            </ui:ElementScope.Body>
+            <ui:ElementScope.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50fe9502-081b-4b84-9d64-e481bc119d9f" InformativeScreenshot="1198546ff9cd7b45f197fc54e4560ac3" Selector="&lt;wnd app='jade.exe' cls='Jade:form' title='*Menu*' /&gt;&lt;wnd cls='Jade:form' title='Cashbook Vendors : ADD' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ElementScope.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ElementScope>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,310" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_29">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExceptionSingleCompany workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExceptionSingleCompany.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="PreviousExceptionMessage">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="exception.Message" />
+                  </InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Rethrow sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

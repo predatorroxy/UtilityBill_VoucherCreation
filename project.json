@@ -3,6 +3,7 @@
   "description": "Voucher creation for utility bills",
   "main": "Main.xaml",
   "dependencies": {
+    "Roboyo.CopyMoveDirectory.Activities": "[1.0.1]",
     "UiPath.Credentials.Activities": "[1.0.7495.12930]",
     "UiPath.Excel.Activities": "[2.8.5]",
     "UiPath.Mail.Activities": "[1.8.5]",
